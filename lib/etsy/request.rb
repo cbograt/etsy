@@ -22,13 +22,13 @@ module Etsy
       request = Request.new(resource_path, parameters)
       Response.new(request.put)
     end
-    
+
     def self.delete(resource_path, parameters = {})
       request = Request.new(resource_path, parameters)
       Response.new(request.delete)
     end
-    
-    
+
+
 
     # Create a new request for the resource with optional parameters
     def initialize(resource_path, parameters = {})
@@ -73,9 +73,9 @@ module Etsy
     end
 
     def put
-      client.put(endpoint_url)
+      client.put(endpoint_url(include_query: false), query)
     end
-    
+
     def delete
       client.delete(endpoint_url)
     end
